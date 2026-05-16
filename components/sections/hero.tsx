@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { Container } from '@/components/container';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -20,6 +21,25 @@ const staggerContainer = {
     },
   },
 };
+
+const leaders = [
+  {
+    name: 'Emma',
+    avatar: 'https://api.dicebear.com/7.x/lorelei/svg?seed=EmmaL_Watson_88',
+  },
+  {
+    name: 'James',
+    avatar: 'https://api.dicebear.com/7.x/lorelei/svg?seed=James_Anderson_21',
+  },
+  {
+    name: 'Sophia',
+    avatar: 'https://api.dicebear.com/7.x/lorelei/svg?seed=Sophia_Miller_45',
+  },
+  {
+    name: 'Lucas',
+    avatar: 'https://api.dicebear.com/7.x/lorelei/svg?seed=Lucas_Brown_77',
+  },
+];
 
 // Premium animated grid background - Vercel/Linear style
 function AnimatedGrid() {
@@ -223,12 +243,22 @@ export function Hero() {
             className="bg-card flex flex-col items-center justify-center gap-3 p-6 md:p-8"
           >
             <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
+              {' '}
+              {leaders.map((user, i) => (
                 <div
                   key={i}
-                  className="border-card from-primary/20 to-accent/20 h-8 w-8 rounded-full border-2 bg-gradient-to-br"
-                />
-              ))}
+                  className="border-card relative h-8 w-8 overflow-hidden rounded-full border-2 bg-gray-400"
+                >
+                  {' '}
+                  <Image
+                    src={user.avatar}
+                    alt={user.name}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />{' '}
+                </div>
+              ))}{' '}
             </div>
             <span className="text-muted-foreground text-sm">
               Trusted by leaders
