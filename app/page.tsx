@@ -11,14 +11,12 @@ import { FAQ } from '@/components/sections/faq';
 import { CTA } from '@/components/sections/cta';
 import { Footer } from '@/components/sections/footer';
 import { LogoStrip } from '@/components/sections/LogoStrip';
-import { Test } from '@/components/Test/Test';
 
 export default function Home() {
   return (
     <main className="mx-auto min-h-screen max-w-7xl border-x px-4">
       <Navbar />
       <Hero />
-      <Test />
       <LogoStrip />
       <Services />
       <Work />
