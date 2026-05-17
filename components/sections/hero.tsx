@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { Container } from '@/components/container';
 import { Button } from '@/components/ui/button';
@@ -41,79 +40,6 @@ const leaders = [
   },
 ];
 
-// Premium animated grid background - Vercel/Linear style
-function AnimatedGrid() {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      {/* Base grid */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '64px 64px',
-        }}
-      />
-
-      {/* Animated glow lines - horizontal */}
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={`h-${i}`}
-          className="absolute left-0 h-px"
-          style={{
-            top: `${20 + i * 25}%`,
-            width: '100%',
-            background:
-              'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.4), transparent)',
-          }}
-          animate={{
-            x: ['-100%', '100%'],
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: 4,
-            delay: i * 1.5,
-            repeat: Infinity,
-            repeatDelay: 6,
-            ease: 'linear',
-          }}
-        />
-      ))}
-
-      {/* Animated glow lines - vertical */}
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={`v-${i}`}
-          className="absolute top-0 w-px"
-          style={{
-            left: `${25 + i * 25}%`,
-            height: '100%',
-            background:
-              'linear-gradient(180deg, transparent, rgba(99, 102, 241, 0.4), rgba(59, 130, 246, 0.4), transparent)',
-          }}
-          animate={{
-            y: ['-100%', '100%'],
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: 5,
-            delay: i * 2 + 0.5,
-            repeat: Infinity,
-            repeatDelay: 7,
-            ease: 'linear',
-          }}
-        />
-      ))}
-
-      {/* Subtle gradient orbs */}
-      <div className="bg-primary/[0.03] absolute top-1/4 left-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
-      <div className="bg-accent/[0.03] absolute right-1/4 bottom-1/4 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
-    </div>
-  );
-}
-
 // Stats with social proof
 const stats = [
   {
@@ -133,9 +59,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="bg-background relative flex min-h-screen items-center overflow-hidden">
-      <AnimatedGrid />
-
+    <section className="relative flex min-h-screen items-center overflow-hidden">
       <Container className="relative z-10 pt-32 pb-20 lg:pt-40">
         {/* Announcement Badge */}
         <motion.div
@@ -165,7 +89,7 @@ export function Hero() {
             <span className="relative">
               empower
               <motion.span
-                className="from-primary to-accent absolute -bottom-2 left-0 h-1 w-full rounded-full bg-gradient-to-r"
+                className="from-primary to-accent absolute -bottom-2 left-0 h-1 w-full rounded-full bg-linear-to-r"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}

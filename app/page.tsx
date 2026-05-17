@@ -14,7 +14,7 @@ import { LogoStrip } from '@/components/sections/LogoStrip';
 
 export default function Home() {
   return (
-    <main className="mx-auto min-h-screen max-w-7xl border-x px-4">
+    <main className="relative mx-auto min-h-screen max-w-7xl border-x px-4">
       <Navbar />
       <Hero />
       <LogoStrip />
