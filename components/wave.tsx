@@ -212,7 +212,7 @@ export default function Wave() {
   }, [syncCanvasSize, startLoop]);
 
   return (
-    <div className="absolute h-screen w-full overflow-hidden bg-white">
+    <div className="absolute hidden h-screen w-full overflow-hidden bg-white md:flex">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 block h-full w-full"
